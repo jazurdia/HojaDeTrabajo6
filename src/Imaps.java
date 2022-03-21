@@ -26,4 +26,11 @@ public interface Imaps <K,V>{
      */
     public int size();
 
+    /**
+     *
+     * @param key llave
+     * @return true si se compara con llave, false si no lo hace.
+     */
+    public boolean containsKey(K key);
+
 }
