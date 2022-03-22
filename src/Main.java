@@ -24,8 +24,6 @@ public class Main {
     Imaps<String, List<String>> inventario;
     List<String> categorias = new ArrayList<String>();
 
-
-
     public static void main(String[] args){
     }
 
