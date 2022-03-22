@@ -14,6 +14,10 @@ public class MyHashMap<K, V> extends Map implements Imaps<K, V>{
         this.mb = new MapBucket[capacity];
     }
 
+    public MyHashMap() {
+        super();
+    }
+
     // comienza duplicación de codigo. Luego borrar. ******************************************************************
     public int getHashCode(K key){
         return (key.hashCode() & 0xfffffff) % capacity;

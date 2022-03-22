@@ -14,6 +14,10 @@ public class Map <K,V> {
         this.value = value;
     }
 
+    public Map() {
+
+    }
+
     //setters and getters
     public K getKey(){
         return this.key;

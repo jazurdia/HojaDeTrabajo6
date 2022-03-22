@@ -11,6 +11,10 @@ public class MyLinkedHashMap<K, V> extends Map implements Imaps<K, V> {
         this.mb = new MapBucket[capacity];
     }
 
+    public MyLinkedHashMap() {
+
+    }
+
     @Override
     public void put(K key, V value) {
         if(containsKey(key)){
