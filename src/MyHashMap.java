@@ -6,7 +6,7 @@ public class MyHashMap<K, V> extends Map implements Imaps<K, V>{
 
     private MapBucket [] mb; //MapBucket
     private int capacity = 10;
-    private int size = 10;
+    private int size = 0;
 
 
     public MyHashMap(Object key, Object value) {
@@ -30,8 +30,7 @@ public class MyHashMap<K, V> extends Map implements Imaps<K, V>{
         return null;
     }
 
-
-    // termina duplicación de codigo. Luego borrar. ******************************************************************
+    // termina duplicación de código. Luego borrar. ******************************************************************
 
 
 
@@ -41,8 +40,18 @@ public class MyHashMap<K, V> extends Map implements Imaps<K, V>{
      * @param value contenido del maps.
      */
     @Override
-    public void put(Object key, Object value) {
-
+    public void put(K key, V value) {
+        if(containsKey(key)){
+            Map entry = getEntry(key);
+            entry.setValue(value);
+        }else{
+            int hash = getHashCode(key);
+            if(mb[hash] == null){
+                mb[hash] = new MapBucket();
+            }
+            mb[hash].addEntry(new Map<>(key, value));
+            size++;
+        }
     }
 
     /**
@@ -50,16 +59,20 @@ public class MyHashMap<K, V> extends Map implements Imaps<K, V>{
      * @return
      */
     @Override
-    public Object get(Object key) {
-        return null;
+    public V get(K key) {
+        return containsKey(key) ? (V) getEntry(key).getValue() : null;
     }
 
     /**
      * @param key llave del map
      */
     @Override
-    public void delete(Object key) {
-
+    public void delete(K key) {
+        if(containsKey(key)){
+            int hash = getHashCode(key);
+            mb[hash].removeEntry(getEntry(key));
+            size--;
+        }
     }
 
     /**
@@ -67,7 +80,7 @@ public class MyHashMap<K, V> extends Map implements Imaps<K, V>{
      */
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     /**

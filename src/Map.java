@@ -3,7 +3,7 @@ import java.util.List;
 /**
  * Obtenido de : https://ichi.pro/es/implementacion-de-hashmap-para-java-159042463681115
  */
-public abstract class Map <K,V> {
+public class Map <K,V> {
 
     private K key;
     private V value;
