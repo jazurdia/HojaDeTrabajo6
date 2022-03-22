@@ -16,11 +16,11 @@ public class Map <K,V> {
 
     //setters and getters
     public K getKey(){
-        return key;
+        return this.key;
     }
 
     public V getValue(){
-        return value;
+        return this.value;
     }
 
     public void setKey(K key){
@@ -30,7 +30,4 @@ public class Map <K,V> {
     public void setValue(V value){
         this.value = value;
     }
-
-
-
 }

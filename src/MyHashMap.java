@@ -32,9 +32,6 @@ public class MyHashMap<K, V> extends Map implements Imaps<K, V>{
 
     // termina duplicación de código. Luego borrar. ******************************************************************
 
-
-
-
     /**
      * @param key   Llave del map.
      * @param value contenido del maps.
